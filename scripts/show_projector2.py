@@ -13,6 +13,7 @@ path = r.get_path('dual_ubiquitous_display_projector')
 def callback(msg):
 
     if msg.data:
+        print "/projector2/switch True"
         img = cv2.imread(path + '/Images/sample.png')
         h = 1024
         w = 768
@@ -21,8 +22,9 @@ def callback(msg):
         cv2.setWindowProperty('screen2', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.moveWindow('screen2',1940,0)
         cv2.imshow('screen2', img)
-        cv2.waitKey(1)
+        cv2.waitKey(0)
     else:
+        print "/projector2/switch False"
         cv2.destroyWindow('screen2')
 
 
